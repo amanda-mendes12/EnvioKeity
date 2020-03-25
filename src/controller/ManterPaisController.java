@@ -30,11 +30,12 @@ public class ManterPaisController extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String pNome = request.getParameter("nome");
-		long pPpopulacao = Long.parseLong(request.getParameter("populacao"));
-		double pArea = Double.parseDouble(request.getParameter("area"));
+		Long pPpopulacao = Long.parseLong(request.getParameter("populacao"));
+		Double pArea = Double.parseDouble(request.getParameter("area"));
 		
 		//instanciar o javabean
 		Pais pais = new Pais();
+		pais.setId(0);
 		pais.setNome(pNome);
 		pais.setPopulacao(pPpopulacao);
 		pais.setArea(pArea);
@@ -48,8 +49,8 @@ public class ManterPaisController extends HttpServlet {
 		out.println("<html><head><title>Pais Cadastrado</title></head><body>");
 		out.println(	"id: "+pais.getId()+"<br>");
 		out.println(	"nome: "+pais.getNome()+"<br>");
-		out.println(	"fone: "+pais.getPopulacao()+"<br>");
-		out.println(	"e-mail: "+pais.getArea()+"<br>");
+		out.println(	"populacao: "+pais.getPopulacao()+"<br>");
+		out.println(	"area: "+pais.getArea()+"<br>");
 	    out.println("</body></html>");
 		
 	}

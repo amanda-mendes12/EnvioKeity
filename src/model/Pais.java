@@ -1,14 +1,11 @@
 package model;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 
 public class Pais {
 	private int id;
 	private String nome;
-	private long populacao;
-	private double area;
+	private Long populacao;
+	private Double area;
 	
 	public Pais() {}
 	
@@ -16,7 +13,7 @@ public class Pais {
 		this.id = id;
 	}
 	
-	public Pais(int id, String nome, long populacao, double area) {
+	public Pais(int id, String nome, Long populacao, Double area) {
 		this.id = id;
 		this.nome = nome;
 		this.populacao = populacao;
@@ -32,11 +29,11 @@ public class Pais {
 		return nome;
 	}
 
-	public long getPopulacao() {
+	public Long getPopulacao() {
 		return populacao;
 	}
 
-	public double getArea() {
+	public Double getArea() {
 		return area;
 	}
 
@@ -49,11 +46,11 @@ public class Pais {
 		this.nome = nome;
 	}
 
-	public void setPopulacao(long populacao) {
+	public void setPopulacao(Long populacao) {
 		this.populacao = populacao;
 	}
 
-	public void setArea(double area) {
+	public void setArea(Double area) {
 		this.area = area;
 	}
 	
@@ -64,56 +61,15 @@ public class Pais {
 	public String paisComMenorArea() {
 		return "pais";
 	}
-	
-	//Conexao banco de dados
-	static {
-		try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			throw new RuntimeException(e);
-		}
-	}
-	
-	// Obtendo conexao com o banco de dados
-	public Connection obtemConexao() throws SQLException {
-		return DriverManager
-				.getConnection("jdbc:mysql://localhost:3306/testeunitario?useTimezone=true&serverTimezone=America/Sao_Paulo&user=root&password=");
-	}
+
 
 	@Override
 	public String toString() {
 		return 	"Nome: " + getNome() +
 				"   Populacao: " + getPopulacao() +
-				"   Ã�rea: " + getArea();
+				"   Area: " + getArea();
 		
 	}
 	
-	/**@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Pais other = (Pais) obj;
-		if (nome == null) {
-			if (other.nome != null)
-				return false;
-		} else if (!nome.equals(other.nome))
-			return false;
-		if (populacao.equals(null)) {
-			if (other.populacao != null)
-				return false;
-		} else if (!populacao.equals(other.populacao))
-			return false;
-		if (id != other.id)
-			return false;
-		if (area == null) {
-			if (other.area != null)
-				return false;
-		} else if (!area.equals(other.area))
-			return false;
-		return true;
-	}**/
+
 }

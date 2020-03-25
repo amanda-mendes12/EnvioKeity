@@ -10,7 +10,7 @@ import model.Pais;
 public class PaisDAO {
 	Pais pais = new Pais();
 	//Inserir
-	public int criar(Pais pais) {
+	public void criar(Pais pais) {
 		String sqlInsert = "INSERT INTO pais (id,nome,populacao,area) VALUES (0, ?, ?, ?)";
 		try (Connection conn = ConnectionFactory.obtemConexao();
 				PreparedStatement stm = conn.prepareStatement(sqlInsert);) {
@@ -21,7 +21,7 @@ public class PaisDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return pais.getId();
+		//return pais.getId();
 	}
 
 	//Atualizar
@@ -69,7 +69,7 @@ public class PaisDAO {
 		} catch (SQLException e1) {
 			System.out.print(e1.getStackTrace());
 		}
-		return null;
+		return pais;
 	}
 
 }
