@@ -7,9 +7,9 @@ import dao.PaisDAO;
 public class PaisService {
 	PaisDAO dao = new PaisDAO();
 	
-	public void criar(Pais pais) {
+	public int criar(Pais pais) {
 		System.out.println("deu certo a criação");
-		//return dao.criar(pais);
+		return dao.criar(pais);
 	}
 	
 	public void atualizar(Pais pais){
